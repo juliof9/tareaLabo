@@ -105,12 +105,13 @@ public class Calculadora extends JPanel{
         Binario.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent arg0){
-                int a,resultado;
+                int a;
+                String resultado;
                 a=Integer.parseInt(textF1.getText());
                 AbstractFactory factory;
-                factory = FactoryProducer.getFactory("Aritmetica");
-                Conversion binario = factory.getConversion("Binario");
-                resultado = binario.conversiones(a);
+                factory = FactoryProducer.getFactory("Conversion");
+                Conversion Binario = factory.getConversion("Binario");
+                resultado = Binario.conversiones(a);
                 textF2.setText(String.valueOf(resultado));
             }
         });
